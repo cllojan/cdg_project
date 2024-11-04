@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c4mm8sjvnceey"
+path="res://.godot/imported/wall_raised.obj-ca0b31fc4b08ddb96fd71e0bb469c250.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_raised.obj-ca0b31fc4b08ddb96fd71e0bb469c250.mesh"]
+
+source_file="res://Models/WallRaised/wall_raised.obj"
+dest_files=["res://.godot/imported/wall_raised.obj-ca0b31fc4b08ddb96fd71e0bb469c250.mesh", "res://.godot/imported/wall_raised.obj-ca0b31fc4b08ddb96fd71e0bb469c250.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://blij6sl110cih"
+path="res://.godot/imported/wizard-7.obj-7e2a3ab27e74cd95c7382ec33816aafa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wizard-7.obj-7e2a3ab27e74cd95c7382ec33816aafa.mesh"]
+
+source_file="res://Scenes/Wizard/wizard-7.obj"
+dest_files=["res://.godot/imported/wizard-7.obj-7e2a3ab27e74cd95c7382ec33816aafa.mesh", "res://.godot/imported/wizard-7.obj-7e2a3ab27e74cd95c7382ec33816aafa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgrfq6mjp5n3a"]
+
+[ext_resource type="Script" path="res://player_arrco.gd" id="1_4jl2e"]
+[ext_resource type="PackedScene" uid="uid://b5qkfw2ey3r5l" path="res://Scenes/health_component.tscn" id="3_gs7hq"]
+[ext_resource type="PackedScene" uid="uid://4ywq78bd5jeq" path="res://Scenes/hitbox_component.tscn" id="4_4sxa0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_os3si"]
+radius = 0.610295
+height = 2.13158
+
+[node name="PlayerArrco" type="CharacterBody3D"]
+script = ExtResource("1_4jl2e")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_gs7hq")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_4sxa0")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679142, 0)
+shape = SubResource("CapsuleShape3D_os3si")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "UN TEXTO DEMASIADO GRANDE"

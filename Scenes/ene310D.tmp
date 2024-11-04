@@ -1,0 +1,206 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvvfg3on0cokl"]
+
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_o3rit"]
+[ext_resource type="PackedScene" uid="uid://4ywq78bd5jeq" path="res://Scenes/hitbox_component.tscn" id="1_w33yg"]
+[ext_resource type="PackedScene" uid="uid://b5qkfw2ey3r5l" path="res://Scenes/health_component.tscn" id="2_iaedn"]
+[ext_resource type="ArrayMesh" uid="uid://c0344vd5t1rk0" path="res://Models/Weapons/sword/EspadaCorta.obj" id="4_imrc0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ow22"]
+albedo_color = Color(0.894118, 0.0431373, 0.0705882, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pb4ea"]
+material = SubResource("StandardMaterial3D_7ow22")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oxogx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cesw0"]
+radius = 0.632933
+height = 2.20622
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hna46"]
+points = PackedVector3Array(0.62991, 0.87241, 0.274557, -0.639434, 0.634299, -0.201517, -0.639434, 0.634299, 0.274557, 0.233225, -2.53869, 0.115865, 0.312512, 2.22154, -0.360294, -0.242748, -2.45965, -0.201517, -0.242748, 2.30107, 0.353945, 0.471211, -2.30107, -0.122214, -0.242748, -2.45965, 0.274557, -0.322036, 2.22154, -0.360294, 0.550623, 0.634299, -0.360294, -0.322036, 0.634299, -0.439683, 0.312512, 0.634299, 0.433333, 0.312512, 2.22154, 0.353945, -0.322036, 0.634299, 0.433333, 0.233225, -2.45965, 0.274557, -0.401448, -2.30107, -0.122214, 0.312512, 0.634299, -0.439683, 0.471211, -2.30107, 0.115865, 0.62991, 0.634299, -0.201517, -0.560147, 0.634299, -0.360294, 0.233225, -2.45965, -0.201517, -0.639434, 0.87241, 0.274557, -0.401448, -2.30107, 0.115865, 0.550623, 0.634299, 0.353945, -0.322036, 2.22154, 0.353945, 0.233225, 2.30107, -0.360294, -0.560147, 0.634299, 0.353945, -0.242748, -2.53869, -0.122214, -0.163337, -2.53869, 0.274557, -0.242748, 2.30107, -0.360294, 0.233225, 2.30107, 0.353945)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vidun"]
+
+[sub_resource type="Animation" id="Animation_w2obm"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponRig:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponRig/MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.868757, -0.497816, -2.36381)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponRig/MeshInstance3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.696333, 0.104297, 2.58423)]
+}
+
+[sub_resource type="Animation" id="Animation_8imip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponRig:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponRig/MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.868757, -0.497816, -2.36381)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponRig/MeshInstance3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.64677e-13, -1.33479, 3.14159)]
+}
+
+[sub_resource type="Animation" id="Animation_wpq0n"]
+resource_name = "idle_enemy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponRig:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WeaponRig/MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.868757, -0.497816, -2.36381), Vector3(0.868757, -0.71807, -2.36381), Vector3(0.868757, -0.71807, -2.36381)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WeaponRig/MeshInstance3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.64677e-13, -1.33479, 3.14159), Vector3(-0.0543334, -1.34102, -2.91347), Vector3(-0.0543334, -1.34102, -2.91347)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnuxh"]
+_data = {
+"RESET": SubResource("Animation_8imip"),
+"attack": SubResource("Animation_w2obm"),
+"idle_enemy": SubResource("Animation_wpq0n")
+}
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+transform = Transform3D(1.01483, 0, 0, 0, 1.01483, 0, 0, 0, 1.01483, 0, 0, 0)
+collision_layer = 255
+collision_mask = 255
+wall_min_slide_angle = 0.698132
+script = ExtResource("1_o3rit")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_pb4ea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_oxogx")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("1_w33yg")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape3D_cesw0")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_iaedn")]
+MAX_HEALTH = 100.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+target_desired_distance = 4.0
+
+[node name="WeaponRig" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WeaponRig"]
+transform = Transform3D(-0.233821, -5.92779e-07, -0.972279, 2.53518e-06, -1, -2.64677e-13, -0.972279, -2.46491e-06, 0.233821, 0.868757, -0.497816, -2.36381)
+layers = 2
+mesh = ExtResource("4_imrc0")
+
+[node name="EnHit" type="Area3D" parent="WeaponRig/MeshInstance3D"]
+unique_name_in_owner = true
+collision_layer = 255
+collision_mask = 255
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponRig/MeshInstance3D/EnHit"]
+transform = Transform3D(1.1, 4.01444e-10, 4.09782e-09, -4.01444e-10, 1.1, 1.0235e-08, -4.09782e-09, -1.0235e-08, 1.1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_hna46")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.587605, 0, 0, 0, 0.176436, 0, 0, 0, 0.35394, 0, 0.447524, -0.453778)
+mesh = SubResource("BoxMesh_vidun")
+
+[node name="AnimationEnemy" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_tnuxh")
+}
+autoplay = "idle_enemy"
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="area_entered" from="WeaponRig/MeshInstance3D/EnHit" to="." method="_on_en_hit_area_entered"]
+[connection signal="animation_finished" from="AnimationEnemy" to="." method="_on_animation_enemy_animation_finished"]

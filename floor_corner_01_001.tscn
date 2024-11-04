@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmybvjm0ewbxf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mwj06"]
+load_path = "res://.godot/imported/BAKE_Blocks_DiffuseMap- 4K.png-fcfde779023b1ff920f4f6f1c2254894.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8fli"]
+albedo_texture = SubResource("CompressedTexture2D_mwj06")
+
+[node name="Floor_Corner_01_001"]
+
+[node name="Floor_Corner_01_001" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_u8fli")

@@ -1,0 +1,236 @@
+[gd_scene load_steps=13 format=3 uid="uid://b2g8xbrys7dj4"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bik5g"]
+[ext_resource type="PackedScene" uid="uid://b5qkfw2ey3r5l" path="res://Scenes/health_component.tscn" id="2_4vuy7"]
+[ext_resource type="ArrayMesh" uid="uid://c0344vd5t1rk0" path="res://Models/Weapons/sword/EspadaCorta.obj" id="2_b65aq"]
+[ext_resource type="PackedScene" uid="uid://4ywq78bd5jeq" path="res://Scenes/hitbox_component.tscn" id="3_154rs"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fpcvd"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vkjq3"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_svb2k"]
+points = PackedVector3Array(0.62991, 0.87241, 0.274557, -0.639434, 0.634299, -0.201517, -0.639434, 0.634299, 0.274557, 0.233225, -2.53869, 0.115865, 0.312512, 2.22154, -0.360294, -0.242748, -2.45965, -0.201517, -0.242748, 2.30107, 0.353945, 0.471211, -2.30107, -0.122214, -0.242748, -2.45965, 0.274557, -0.322036, 2.22154, -0.360294, 0.550623, 0.634299, -0.360294, -0.322036, 0.634299, -0.439683, 0.312512, 0.634299, 0.433333, 0.312512, 2.22154, 0.353945, -0.322036, 0.634299, 0.433333, 0.233225, -2.45965, 0.274557, -0.401448, -2.30107, -0.122214, 0.312512, 0.634299, -0.439683, 0.471211, -2.30107, 0.115865, 0.62991, 0.634299, -0.201517, -0.560147, 0.634299, -0.360294, 0.233225, -2.45965, -0.201517, -0.639434, 0.87241, 0.274557, -0.401448, -2.30107, 0.115865, 0.550623, 0.634299, 0.353945, -0.322036, 2.22154, 0.353945, 0.233225, 2.30107, -0.360294, -0.560147, 0.634299, 0.353945, -0.242748, -2.53869, -0.122214, -0.163337, -2.53869, 0.274557, -0.242748, 2.30107, -0.360294, 0.233225, 2.30107, 0.353945)
+
+[sub_resource type="Animation" id="Animation_cr6ed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/WeaponRig:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/WeaponRig/MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.73035e-14, -1.33479, 3.14159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera3D/WeaponRig/MeshInstance3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.66364, -0.497816, -3.38206)]
+}
+
+[sub_resource type="Animation" id="Animation_wfa5y"]
+resource_name = "attack"
+length = 0.5
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/WeaponRig/MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
+"update": 0,
+"values": [Vector3(3.49235, -1.02663, -2.82523)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/WeaponRig/MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
+"update": 0,
+"values": [Vector3(-1.0616, -0.894012, 2.81702)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera3D/WeaponRig:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.1163, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w5vkl"]
+resource_name = "idle_state"
+length = 3.0
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/WeaponRig:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/WeaponRig/MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.148797, -1.53451, -3.13621), Vector3(0.295273, -1.50608, -3.03793)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera3D/WeaponRig/MeshInstance3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(2.22157, -1.19033, -3.38206), Vector3(2.22157, -1.69033, -3.38206)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvx5k"]
+_data = {
+"RESET": SubResource("Animation_cr6ed"),
+"attack": SubResource("Animation_wfa5y"),
+"idle_state": SubResource("Animation_w5vkl")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_os3si"]
+radius = 0.610295
+height = 2.13158
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_bik5g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661439, 0)
+mesh = SubResource("CapsuleMesh_fpcvd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661439, 0)
+shape = SubResource("ConvexPolygonShape3D_vkjq3")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0696, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+cull_mask = 1048573
+
+[node name="WeaponRig" type="Node3D" parent="Head/Camera3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D/WeaponRig"]
+transform = Transform3D(-0.116911, -2.9639e-07, -0.48614, 1.26759e-06, -0.5, -1.86518e-14, -0.48614, -1.23245e-06, 0.116911, 2.66364, -0.497816, -3.38206)
+layers = 2
+mesh = ExtResource("2_b65aq")
+
+[node name="HitBox" type="Area3D" parent="Head/Camera3D/WeaponRig/MeshInstance3D"]
+unique_name_in_owner = true
+collision_layer = 255
+collision_mask = 255
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/WeaponRig/MeshInstance3D/HitBox"]
+transform = Transform3D(1.1, 4.01444e-10, 4.09782e-09, -4.01444e-10, 1.1, 1.0235e-08, -4.09782e-09, -1.0235e-08, 1.1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_svb2k")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Head/Camera3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1366, 768)
+render_target_update_mode = 4
+
+[node name="WeaponCamera" type="Camera3D" parent="Head/Camera3D/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+cull_mask = 2
+fov = 90.0
+
+[node name="HeadMesh" type="MeshInstance3D" parent="Head"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nvx5k")
+}
+autoplay = "idle_state"
+playback_default_blend_time = 0.1
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_4vuy7")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_154rs")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679142, 0)
+shape = SubResource("CapsuleShape3D_os3si")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "JHGKJDSHAFS
+"
+
+[connection signal="area_entered" from="Head/Camera3D/WeaponRig/MeshInstance3D/HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

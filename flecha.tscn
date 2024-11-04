@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6bn8m1jbkc38"]
+
+[ext_resource type="Script" path="res://flecha.gd" id="1_f7w0v"]
+[ext_resource type="ArrayMesh" uid="uid://cx546gbo8yfvv" path="res://Models/Flechas/Flechas.obj" id="1_k6mww"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fuwey"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_00y2u"]
+
+[node name="Flecha" type="RigidBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+gravity_scale = -8.0
+script = ExtResource("1_f7w0v")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 3.49691e-07, 0, -2.18226)
+linear_damp_mode = 1
+constant_force = Vector3(0, 30, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_fuwey")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_k6mww")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(0.965926, 6.18173e-08, 0.258819, -6.47961e-08, 1, 2.97888e-09, -0.258819, -1.96478e-08, 0.965926, 0.0143157, 0, -3.29241)
+target_position = Vector3(0, 0, -0.6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.450852, 0, 0.216177, 0, 0.5, 0, -0.216177, 0, 0.450852, 0, 0, 0)
+shape = SubResource("SphereShape3D_00y2u")

@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://0wtwsscd72e8"]
+
+[ext_resource type="Texture2D" uid="uid://c43x5kp4i05pg" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="3_vhekf"]
+[ext_resource type="Texture2D" uid="uid://druh1mvkiaugp" path="res://addons/kenney_prototype_textures/orange/texture_09.png" id="4_1nmw7"]
+[ext_resource type="PackedScene" uid="uid://b2g8xbrys7dj4" path="res://Scenes/player.tscn" id="4_uso3x"]
+[ext_resource type="PackedScene" uid="uid://ckhxigubfhk3s" path="res://Scenes/wizard.tscn" id="4_vf164"]
+[ext_resource type="PackedScene" uid="uid://dvvfg3on0cokl" path="res://Scenes/enemy.tscn" id="5_6do1o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o7nuo"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_iwjfu"]
+sky_material = SubResource("ProceduralSkyMaterial_o7nuo")
+
+[sub_resource type="Environment" id="Environment_8fpo4"]
+background_mode = 2
+sky = SubResource("Sky_iwjfu")
+tonemap_mode = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_cvpq4"]
+vertices = PackedVector3Array(0, 8.75, -42.8064, 0, 8.75, 64.9436, 0.5, 8.75, 64.9436, 1.25, 1, -42.8064, 1.25, 1, 63.9436, 111, 1, 63.9436, 111, 1, -42.8064)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(6, 5, 3), PackedInt32Array(3, 5, 4)]
+agent_height = 5.0
+agent_max_slope = 60.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dedl2"]
+albedo_color = Color(0.682353, 0.713726, 0.74902, 1)
+albedo_texture = ExtResource("3_vhekf")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv2_scale = Vector3(0.5, 0.5, 0.5)
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ou76"]
+albedo_texture = ExtResource("4_1nmw7")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv2_scale = Vector3(0.5, 0.5, 0.5)
+uv2_triplanar = true
+uv2_world_triplanar = true
+
+[node name="World" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0295429, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_uso3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65706, 2.04708, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8fpo4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource("5_6do1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1943, 1.5, 0.314789)
+player_path = NodePath("../Player")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_cvpq4")
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, 10.5458)
+use_collision = true
+size = Vector3(113, 1, 109.919)
+material = SubResource("StandardMaterial3D_dedl2")
+
+[node name="Wall" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0532837, 4.38672, 10.4436)
+use_collision = true
+size = Vector3(1, 7.92334, 110)
+material = SubResource("StandardMaterial3D_8ou76")
+
+[node name="Wall2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 55.9818, 4.42139, 65.041)
+use_collision = true
+size = Vector3(1, 7.84277, 111.065)
+material = SubResource("StandardMaterial3D_8ou76")
+
+[node name="Wall3" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112, 4.27448, 10.5)
+use_collision = true
+size = Vector3(1, 7.54895, 110)
+material = SubResource("StandardMaterial3D_8ou76")
+
+[node name="Wall4" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 55.978, 5.02582, -43.959)
+use_collision = true
+size = Vector3(1, 9.05164, 111)
+material = SubResource("StandardMaterial3D_8ou76")
+
+[node name="Wizard" parent="NavigationRegion3D" instance=ExtResource("4_vf164")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 15.3534, 1.64695, -3.76004)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_6do1o")]
+transform = Transform3D(1.01483, 0, 0, 0, 1.01483, 0, 0, 0, 1.01483, 22.947, 4.46903, 4.34263)
+player_path = NodePath("../Player")

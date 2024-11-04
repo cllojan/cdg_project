@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvvfg3on0cokl"]
+
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_o3rit"]
+[ext_resource type="PackedScene" uid="uid://4ywq78bd5jeq" path="res://Scenes/hitbox_component.tscn" id="1_w33yg"]
+[ext_resource type="PackedScene" uid="uid://b5qkfw2ey3r5l" path="res://Scenes/health_component.tscn" id="2_iaedn"]
+[ext_resource type="ArrayMesh" uid="uid://ebrnc2wubqjm" path="res://Models/Slime/Slime.obj" id="2_tgac7"]
+[ext_resource type="Texture2D" uid="uid://c5125hk07ktif" path="res://Models/Slime/Textura.png" id="3_8coul"]
+[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="5_u67wj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epfxr"]
+albedo_texture = ExtResource("3_8coul")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oxogx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cesw0"]
+radius = 0.632933
+height = 2.20622
+
+[sub_resource type="BoxMesh" id="BoxMesh_vidun"]
+
+[sub_resource type="Animation" id="Animation_8imip"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_w2obm"]
+resource_name = "attack"
+length = 0.5
+
+[sub_resource type="Animation" id="Animation_wpq0n"]
+resource_name = "idle_enemy"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnuxh"]
+_data = {
+"RESET": SubResource("Animation_8imip"),
+"attack": SubResource("Animation_w2obm"),
+"idle_enemy": SubResource("Animation_wpq0n")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jt7uf"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 255
+collision_mask = 255
+wall_min_slide_angle = 0.698132
+script = ExtResource("1_o3rit")
+knockback_modifier = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.5, 0, 2.98023e-08, 0, 0.5, 0, -2.98023e-08, 0, -0.5, 0, -0.422599, 0)
+mesh = ExtResource("2_tgac7")
+surface_material_override/0 = SubResource("StandardMaterial3D_epfxr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_oxogx")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("1_w33yg")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape3D_cesw0")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_iaedn")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
+target_desired_distance = 5.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.587605, 0, 0, 0, 0.176436, 0, 0, 0, 0.35394, 0, 0.447524, -0.453778)
+mesh = SubResource("BoxMesh_vidun")
+
+[node name="AnimationEnemy" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_tnuxh")
+}
+autoplay = "idle_enemy"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32237, 0)
+texture = SubResource("ViewportTexture_jt7uf")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+handle_input_locally = false
+render_target_update_mode = 4
+script = ExtResource("5_u67wj")
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 196.0
+offset_bottom = 56.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "OTRO TEXTO GRANDE"
+
+[connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="animation_finished" from="AnimationEnemy" to="." method="_on_animation_enemy_animation_finished"]

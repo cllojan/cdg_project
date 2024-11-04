@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cx546gbo8yfvv"
+path="res://.godot/imported/Flechas.obj-8c79e345088d6c72e5703afcbae46b86.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Flechas.obj-8c79e345088d6c72e5703afcbae46b86.mesh"]
+
+source_file="res://Models/Flechas/Flechas.obj"
+dest_files=["res://.godot/imported/Flechas.obj-8c79e345088d6c72e5703afcbae46b86.mesh", "res://.godot/imported/Flechas.obj-8c79e345088d6c72e5703afcbae46b86.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
