@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bubs3r55qe45v"
+path="res://.godot/imported/enemy-5.obj-ad8a827edaafbc4bcfb5cfd744e1dd5e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/enemy-5.obj-ad8a827edaafbc4bcfb5cfd744e1dd5e.mesh"]
+
+source_file="res://Models/EnemigoB/enemy-5.obj"
+dest_files=["res://.godot/imported/enemy-5.obj-ad8a827edaafbc4bcfb5cfd744e1dd5e.mesh", "res://.godot/imported/enemy-5.obj-ad8a827edaafbc4bcfb5cfd744e1dd5e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

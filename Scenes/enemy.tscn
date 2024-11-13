@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dvvfg3on0cokl"]
 
-[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_o3rit"]
+[ext_resource type="Script" path="res://Scenes/enemyB.gd" id="1_uuhnb"]
 [ext_resource type="PackedScene" uid="uid://4ywq78bd5jeq" path="res://Scenes/hitbox_component.tscn" id="1_w33yg"]
 [ext_resource type="PackedScene" uid="uid://b5qkfw2ey3r5l" path="res://Scenes/health_component.tscn" id="2_iaedn"]
 [ext_resource type="ArrayMesh" uid="uid://ebrnc2wubqjm" path="res://Models/Slime/Slime.obj" id="2_tgac7"]
@@ -42,7 +42,7 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 collision_layer = 255
 collision_mask = 255
 wall_min_slide_angle = 0.698132
-script = ExtResource("1_o3rit")
+script = ExtResource("1_uuhnb")
 knockback_modifier = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -1,0 +1,113 @@
+[gd_scene load_steps=26 format=3 uid="uid://bf474opo8ok5n"]
+
+[ext_resource type="ArrayMesh" uid="uid://dg5ahrke1lkbs" path="res://Models/EnemigoB/enemy-11.obj" id="1_t6832"]
+[ext_resource type="Texture2D" uid="uid://dhl7gyyagx0bb" path="res://Models/EnemigoB/enemy.png" id="1_wlmkn"]
+[ext_resource type="ArrayMesh" uid="uid://bf7vs8w8lpqos" path="res://Models/EnemigoB/enemy-10.obj" id="2_admri"]
+[ext_resource type="ArrayMesh" uid="uid://cbgeets1egkn7" path="res://Models/EnemigoB/enemy-3.obj" id="3_fluc1"]
+[ext_resource type="ArrayMesh" uid="uid://cf0sar8a5hj83" path="res://Models/EnemigoB/enemy-6.obj" id="4_rb34e"]
+[ext_resource type="ArrayMesh" uid="uid://b6sddlscisksv" path="res://Models/EnemigoB/enemy-4.obj" id="5_ox2uf"]
+[ext_resource type="ArrayMesh" uid="uid://bxe58t3hpvir" path="res://Models/EnemigoB/enemy-9.obj" id="6_7twvr"]
+[ext_resource type="ArrayMesh" uid="uid://c53jtjuew1yur" path="res://Models/EnemigoB/enemy-7.obj" id="7_pc3jg"]
+[ext_resource type="ArrayMesh" uid="uid://bubs3r55qe45v" path="res://Models/EnemigoB/enemy-5.obj" id="8_rpnmq"]
+[ext_resource type="ArrayMesh" uid="uid://cx72aulohwiv2" path="res://Models/EnemigoB/enemy-0.obj" id="9_vdr3g"]
+[ext_resource type="ArrayMesh" uid="uid://rsp7bld1qxfr" path="res://Models/EnemigoB/enemy-1.obj" id="10_ctpka"]
+[ext_resource type="ArrayMesh" uid="uid://d14d1wp8jxjda" path="res://Models/EnemigoB/enemy-2.obj" id="11_62k27"]
+[ext_resource type="ArrayMesh" uid="uid://d108huabadrit" path="res://Models/EnemigoB/enemy-8.obj" id="12_wipwx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1i2x"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwva2"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41mo8"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71sro"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu7b7"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hdgi"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ci8d2"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjv8m"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5xgm"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vc86t"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l4pm"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aunij"]
+albedo_texture = ExtResource("1_wlmkn")
+
+[node name="Enemigo" type="Node3D"]
+
+[node name="Cintura" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_v1i2x")
+mesh = ExtResource("1_t6832")
+
+[node name="Cuerpo" type="MeshInstance3D" parent="Cintura"]
+material_override = SubResource("StandardMaterial3D_rwva2")
+mesh = ExtResource("2_admri")
+skeleton = NodePath("../..")
+
+[node name="AnteBrazoD" type="MeshInstance3D" parent="Cintura/Cuerpo"]
+material_override = SubResource("StandardMaterial3D_41mo8")
+mesh = ExtResource("3_fluc1")
+skeleton = NodePath("../../..")
+
+[node name="BrazoD" type="MeshInstance3D" parent="Cintura/Cuerpo/AnteBrazoD"]
+material_override = SubResource("StandardMaterial3D_71sro")
+mesh = ExtResource("4_rb34e")
+skeleton = NodePath("../../../..")
+
+[node name="AnteBrazoI" type="MeshInstance3D" parent="Cintura/Cuerpo"]
+material_override = SubResource("StandardMaterial3D_mu7b7")
+mesh = ExtResource("5_ox2uf")
+skeleton = NodePath("../../..")
+
+[node name="BrazoI" type="MeshInstance3D" parent="Cintura/Cuerpo/AnteBrazoI"]
+material_override = SubResource("StandardMaterial3D_7hdgi")
+mesh = ExtResource("6_7twvr")
+skeleton = NodePath("../../../..")
+
+[node name="Cabeza" type="MeshInstance3D" parent="Cintura/Cuerpo"]
+material_override = SubResource("StandardMaterial3D_ci8d2")
+mesh = ExtResource("7_pc3jg")
+skeleton = NodePath("../../..")
+
+[node name="Cinturon" type="MeshInstance3D" parent="Cintura"]
+material_override = SubResource("StandardMaterial3D_wjv8m")
+mesh = ExtResource("8_rpnmq")
+skeleton = NodePath("../..")
+
+[node name="MusloD" type="MeshInstance3D" parent="Cintura"]
+material_override = SubResource("StandardMaterial3D_o5xgm")
+mesh = ExtResource("9_vdr3g")
+skeleton = NodePath("../..")
+
+[node name="PiernaD" type="MeshInstance3D" parent="Cintura/MusloD"]
+material_override = SubResource("StandardMaterial3D_vc86t")
+mesh = ExtResource("10_ctpka")
+skeleton = NodePath("../../..")
+
+[node name="MusloI" type="MeshInstance3D" parent="Cintura"]
+material_override = SubResource("StandardMaterial3D_4l4pm")
+mesh = ExtResource("11_62k27")
+skeleton = NodePath("../..")
+
+[node name="PiernaI" type="MeshInstance3D" parent="Cintura/MusloI"]
+material_override = SubResource("StandardMaterial3D_aunij")
+mesh = ExtResource("12_wipwx")
+skeleton = NodePath("../../..")

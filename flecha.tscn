@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6bn8m1jbkc38"]
 
 [ext_resource type="Script" path="res://flecha.gd" id="1_f7w0v"]
-[ext_resource type="ArrayMesh" uid="uid://cx546gbo8yfvv" path="res://Models/Flechas/Flechas.obj" id="1_k6mww"]
+[ext_resource type="ArrayMesh" uid="uid://cx546gbo8yfvv" path="res://Models/Weapons/Flechas/Flechas.obj" id="1_k6mww"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fuwey"]
 

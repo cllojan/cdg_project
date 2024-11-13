@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://0wtwsscd72e8"]
+[gd_scene load_steps=13 format=3 uid="uid://0wtwsscd72e8"]
 
 [ext_resource type="Texture2D" uid="uid://c43x5kp4i05pg" path="res://addons/kenney_prototype_textures/dark/texture_08.png" id="3_vhekf"]
 [ext_resource type="Texture2D" uid="uid://druh1mvkiaugp" path="res://addons/kenney_prototype_textures/orange/texture_09.png" id="4_1nmw7"]
 [ext_resource type="PackedScene" uid="uid://b2g8xbrys7dj4" path="res://Scenes/player.tscn" id="4_uso3x"]
+[ext_resource type="PackedScene" uid="uid://ckhxigubfhk3s" path="res://Scenes/wizard.tscn" id="4_vf164"]
 [ext_resource type="PackedScene" uid="uid://dvvfg3on0cokl" path="res://Scenes/enemy.tscn" id="5_6do1o"]
-[ext_resource type="PackedScene" uid="uid://cgp5ya7476jhl" path="res://Scenes/enemyB.tscn" id="5_chqbh"]
+[ext_resource type="PackedScene" uid="uid://2jcb8v0b8jtl" path="res://Scenes/enemy2.tscn" id="6_ck70u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o7nuo"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,10 +57,6 @@ shadow_enabled = true
 
 [node name="Enemy" parent="." instance=ExtResource("5_6do1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1943, 1.5, 0.314789)
-player_path = NodePath("../Player")
-
-[node name="Enemy2" parent="." instance=ExtResource("5_6do1o")]
-transform = Transform3D(1.01483, 0, 0, 0, 1.01483, 0, 0, 0, 1.01483, 22.947, 4.46903, 4.34263)
 visible = false
 player_path = NodePath("../Player")
 
@@ -96,6 +93,12 @@ use_collision = true
 size = Vector3(1, 9.05164, 111)
 material = SubResource("StandardMaterial3D_8ou76")
 
-[node name="EnemyB" parent="." instance=ExtResource("5_chqbh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.814, 1, -16.171)
+[node name="Wizard" parent="NavigationRegion3D" instance=ExtResource("4_vf164")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 15.3534, 1.64695, -3.76004)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_6do1o")]
+transform = Transform3D(1.01483, 0, 0, 0, 1.01483, 0, 0, 0, 1.01483, 22.947, 4.46903, 4.34263)
+visible = false
 player_path = NodePath("../Player")
+
+[node name="Enemy3" parent="." instance=ExtResource("6_ck70u")]

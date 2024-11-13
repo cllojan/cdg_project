@@ -106,6 +106,6 @@ func _on_hit_box_area_entered(area: Area3D) -> void:
 	if area is HitboxComponent:	
 		var hitbox: HitboxComponent = area
 		var attack = Attack.new()
-		attack.attack_damage = 10.0
+		attack.attack_damage = 100.0
 		attack.knockback_force = 100.0
 		hitbox.damage(attack)
